@@ -75,7 +75,7 @@ const server = browserSync.create();
 export const serve = done => {
   server.init({
     // put your local website link here:
-    proxy: "http://192.168.0.15:8888/project-template/" 
+    proxy: "http://192.168.0.15:8888/project-template/dist/index.html" 
   });
   done();
 };
