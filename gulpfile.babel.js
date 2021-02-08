@@ -73,10 +73,11 @@ export const scripts = () => {
 // Refreshing the browser with Browsersync
 const server = browserSync.create();
 export const serve = done => {
-  server.init({
+  // uncomment if you need to run a server and want a proxy
+  //server.init({
     // put your local website link here:
-    proxy: "http://192.168.68.101:8888/nestojosa/" 
-  });
+    //proxy: "http://192.168.68.101:8888/nestojosa/" 
+  //});
   done();
 };
 export const reload = done => {
