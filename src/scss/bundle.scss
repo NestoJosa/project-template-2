@@ -1,7 +1,6 @@
 // bundle.scss
 
-// import modified bootstrap
-@import './modified-bootstrap.scss';
+
 
 // Abstracts - order matters
 @import 'abstracts/variables';
@@ -13,4 +12,5 @@
 @import 'base/typography';
 
 // Components - order does NOT matter
+@import 'components/modified-bootstrap.scss';
 @import 'components/PageWrapper';
