@@ -8,7 +8,8 @@ How to install
 git clone https://github.com/NestoJosa/project-template.git `<new-dir-name>`
 - remove the remote repo:   
 git remote rm origin
-- create a new remote repo and push the newly created project
+- create a new remote repo
+- add the new remote repo to the newly created project
 - update the proxy in gulpfile
 - run npm install
 
