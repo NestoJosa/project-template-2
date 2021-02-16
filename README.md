@@ -12,6 +12,7 @@ git remote rm origin
 - add the new remote repo to the newly created project
 - update the proxy in gulpfile
 - run npm install
+- update the readme.md: at least remove these instructions
 
 Bootstrap
 - the styles are hosted locally in order to implement modifications
