@@ -6,7 +6,6 @@ import gulpif from 'gulp-if';
 import postcss from 'gulp-postcss';
 import sourcemaps from 'gulp-sourcemaps';
 import autoprefixer from 'autoprefixer';
-import imagemin from 'gulp-imagemin';
 import del from 'del';
 import webpack from 'webpack-stream';
 import browserSync from "browser-sync";
@@ -29,20 +28,18 @@ export const compileStyles = () => {
     .pipe(dest('dist/css'));
 }
 
-export const compressImages = () => {
-  return src('src/img/**/*.{jpg,jpeg,png,svg,gif}')
-    .pipe(gulpif(PRODUCTION, imagemin()))
-    .pipe(dest('dist/img'));
-}
-
-export const copy = () =>{
-  return src(['src/**/*', '!src/{img,js,scss}', '!src/{img,js,scss}/**/*', '!src/bootstrap/scss', '!src/bootstrap/scss/**/*'])
+export const copyFiles = () =>{
+  return src([
+    'src/**/*', 
+    '!src/{js,scss}', 
+    '!src/{js,scss}/**/*',
+  ])
   .pipe(dest('dist'));
 }
 
-export const clean = () => del(['dist']);
+export const deleteDist = () => del(['dist']);
 
-export const scripts = () => {
+export const compileScripts = () => {
   return src('src/js/bundle.js')
   .pipe(webpack({
     module: {
@@ -69,13 +66,12 @@ export const scripts = () => {
   .pipe(dest('dist/js'));
 }
 
-
 // Refreshing the browser with Browsersync
 const server = browserSync.create();
 export const serve = done => {
   server.init({
     // put your local website link here:
-    proxy: "http://192.168.0.15:8888/project-template/dist/index.html" 
+    proxy: "http://192.168.0.15:8888/new-project-directory-here/dist/index.html" 
   });
   done();
 };
@@ -84,15 +80,13 @@ export const reload = done => {
   done();
 };
 
-
 export const watchForChanges = () => {
   watch('src/scss/**/*.scss', series(compileStyles, reload));
-  watch('src/img/**/*.{jpg,jpeg,png,svg,gif}', series(compressImages, reload));
-  watch('src/js/**/*.js', series(scripts, reload));
-  watch(['src/**/*','!src/{scss,img,js,}','!src/{scss,img,js}/**/*'], series(copy, reload));
+  watch('src/js/**/*.js', series(compileScripts, reload));
+  watch(['src/**/*','!src/{scss,js,}','!src/{scss,js}/**/*'], series(copyFiles, reload));
   watch('**/*.php', reload); 
 }
 
-export const dev = series(clean, parallel(compileStyles, compressImages, copy, scripts), serve, watchForChanges);
-export const build = series(clean, parallel(compileStyles, compressImages, copy, scripts));
+export const dev = series(deleteDist, parallel(compileStyles, compileScripts, copyFiles), serve, watchForChanges);
+export const build = series(deleteDist, parallel(compileStyles, compileScripts, copyFiles));
 export default dev;
