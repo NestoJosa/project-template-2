@@ -4,9 +4,8 @@
   "description": "// project-template",
   "main": "gulpfile.babel.js",
   "scripts": {
-    "start": "gulp",
-    "build": "gulp build --prod",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gulp",
+    "build": "gulp build --prod"
   },
   "author": "Ernesto Hinojosa",
   "license": "ISC",
