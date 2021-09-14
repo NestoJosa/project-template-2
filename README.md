@@ -15,4 +15,4 @@ git remote rm origin
 - update the readme.md: at least remove these instructions
 
 Bootstrap
-- the scripts and styles are hosted locally
+- the scripts and styles are hosted externally
