@@ -1,16 +1,15 @@
 // bundle.scss
 
-
+// import our custom bootstrap
+@import './custom-bootstrap.scss';
 
 // Abstracts - order matters
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
 
-// Base - order matters
+//Base - order matters
 @import 'base/resets';
 @import 'base/layout';
 @import 'base/typography';
 
 // Components - order does NOT matter
-@import 'components/modified-bootstrap.scss';
-@import 'components/PageWrapper';

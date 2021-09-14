@@ -1,4 +1,4 @@
-// project-template
+// project-template-2
 
 Note
 - This project should run in a server directory e.g. mamp's htdocs
@@ -15,5 +15,4 @@ git remote rm origin
 - update the readme.md: at least remove these instructions
 
 Bootstrap
-- the styles are hosted locally in order to implement modifications
-- the scripts are NOT hosted locally, because its currently not needed
+- the scripts and styles are hosted locally
