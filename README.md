@@ -5,7 +5,7 @@ Note
 
 How to install
 - clone this repo into a new directory  
-- remove the remote repo: git remote rm origin
+- (cd into the new dir and) remove the remote repo: git remote rm origin
 - create a new remote repo
 - add the new remote repo to the newly created project
 - update the proxy in gulpfile
