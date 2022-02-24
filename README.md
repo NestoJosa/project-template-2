@@ -14,3 +14,4 @@ How to install
 
 Bootstrap
 - the scripts and styles are hosted externally
+# project-template-3
